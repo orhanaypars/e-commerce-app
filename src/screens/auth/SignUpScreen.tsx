@@ -7,15 +7,19 @@ import { s, vs } from "react-native-size-matters";
 import AppText from "../../components/texts/AppText";
 import AppTextInput from "../../components/inputs/AppTextInput";
 import AppButton from "../../components/buttons/AppButton";
+import App from "../../../App";
 import { useNavigation } from "@react-navigation/native";
 
-const SignInScreen = () => {
+const SignUpScreen = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [userName, setUserName] = React.useState("");
   const navigation = useNavigation();
+
   return (
     <AppSaveView style={styles.container}>
       <Image source={images.appLogo} style={styles.logo} />
+      <AppTextInput placeholder="User Name" onChangeText={setUserName} />
       <AppTextInput placeholder="Email" onChangeText={setEmail} />
       <AppTextInput
         placeholder="Password"
@@ -23,16 +27,16 @@ const SignInScreen = () => {
         secureTextEntry
       />
       <AppText style={styles.appName}>Smart E-Commerce</AppText>
-      <AppButton title="Log in" />
+      <AppButton title="Create New Account" />
       <AppButton
-        title="Sign up"
-        onPress={() => navigation.navigate("SignUpScreen")}
+        title="Sign In"
+        onPress={() => navigation.navigate("SignInScreen")}
       />
     </AppSaveView>
   );
 };
 
-export default SignInScreen;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
   container: {

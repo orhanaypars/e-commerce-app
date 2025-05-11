@@ -1,17 +1,16 @@
 import { StyleSheet } from "react-native";
-
-import AppSaveView from "./src/views/AppSaveView";
 import FlashMessage, { showMessage } from "react-native-flash-message";
-import AppButton from "./src/components/buttons/AppButton";
-import AppTextInput from "./src/components/inputs/AppTextInput";
-import SignInScreen from "./src/screens/auth/SignInScreen";
+import AuthStack from "./src/navigation/AuthStack";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   return (
     <>
-      {" "}
-      <FlashMessage position="top" />
-      <SignInScreen />
+      <NavigationContainer>
+        {" "}
+        <FlashMessage position="top" />
+        <AuthStack />
+      </NavigationContainer>
     </>
   );
 }
