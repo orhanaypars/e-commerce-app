@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import FlashMessage, { showMessage } from "react-native-flash-message";
-import AuthStack from "./src/navigation/AuthStack";
 import { NavigationContainer } from "@react-navigation/native";
+import MainAppStack from "./src/navigation/MainAppStack";
 
 export default function App() {
   return (
@@ -9,7 +9,7 @@ export default function App() {
       <NavigationContainer>
         {" "}
         <FlashMessage position="top" />
-        <AuthStack />
+        <MainAppStack />
       </NavigationContainer>
     </>
   );
