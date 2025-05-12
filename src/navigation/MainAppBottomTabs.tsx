@@ -21,7 +21,9 @@ export default function MainAppBottomTabs() {
           fontSize: s(12),
         },
         tabBarStyle: IS_Android && {
-          height: vs(50),
+          height: vs(100),
+          justifyContent: "center",
+          alignItems: "center",
         },
       }}
     >
