@@ -6,8 +6,12 @@ import { FlatList } from "react-native-gesture-handler";
 import { products } from "../../data/products";
 import ProductCard from "../../components/cards/ProductCard";
 import { vs } from "react-native-size-matters";
+import { useCart } from "../../context/CartContext";
 
 const HomeScreen = () => {
+  // Get addToCart function from context
+  const { addToCart } = useCart();
+
   return (
     <AppSaveView>
       <HomeHeader />
@@ -16,7 +20,7 @@ const HomeScreen = () => {
         data={products}
         renderItem={({ item }) => (
           <ProductCard
-            onAddToCartPress={() => {}}
+            onAddToCartPress={() => addToCart(item)}
             imageURL={item.imageURL}
             title={item.title}
             price={item.price}
