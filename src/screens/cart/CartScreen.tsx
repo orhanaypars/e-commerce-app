@@ -5,6 +5,7 @@ import HomeHeader from "../../components/headers/HomeHeader";
 import CartItem from "../../components/cart/CartItem";
 import TotalsView from "../../components/cart/TotalsView";
 import { useCart, Product } from "../../context/CartContext";
+import AppButton from "../../components/buttons/AppButton";
 
 const CartScreen = () => {
   // Get cart state and methods from context
@@ -79,6 +80,7 @@ const CartScreen = () => {
       {cartItems.length > 0 && (
         <TotalsView total={totalPrice} onCheckout={() => {}} />
       )}
+     
     </AppSaveView>
   );
 };

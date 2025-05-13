@@ -3,6 +3,7 @@ import AuthStack from "./AuthStack";
 import MainAppBottomTabs from "./MainAppBottomTabs";
 import { useAuth } from "../context/AuthContext";
 import { ActivityIndicator, View } from "react-native";
+import CheckoutScreen from "../screens/cart/CheckoutScreen";
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ export default function MainAppStack() {
       ) : (
         <Stack.Screen name="MainAppBottomTabs" component={MainAppBottomTabs} />
       )}
+      <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} />
     </Stack.Navigator>
   );
 }

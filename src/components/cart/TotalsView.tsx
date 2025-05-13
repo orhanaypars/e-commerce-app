@@ -4,6 +4,8 @@ import { vs, ms } from 'react-native-size-matters';
 import AppText from '../texts/AppText';
 import AppColors from '../../styles/colors';
 import { shipping, taxRate } from '../../constants/constants';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 interface ITotalsView {
   total: number;
@@ -11,6 +13,7 @@ interface ITotalsView {
 }
 
 const TotalsView: FC<ITotalsView> = ({ total, onCheckout }) => {
+  const navigation = useNavigation<StackNavigationProp<any>>();
   const { subtotal, tax, shippingCost, orderTotal } = useMemo(() => {
     const subtotal = total;
     const tax = subtotal * taxRate;
@@ -55,7 +58,10 @@ const TotalsView: FC<ITotalsView> = ({ total, onCheckout }) => {
 
       <TouchableOpacity
         style={styles.checkoutButton}
-        onPress={onCheckout}
+        onPress={() => {
+          onCheckout();
+          navigation.navigate('CheckoutScreen');
+        }}
         activeOpacity={0.8}
         testID="checkout-button"
       >
@@ -112,7 +118,7 @@ const styles = StyleSheet.create({
   } as TextStyle,
   checkoutButton: {
     backgroundColor: AppColors.primary,
-    borderRadius: 8,
+    borderRadius: 12,
     paddingVertical: vs(14),
     alignItems: 'center',
     justifyContent: 'center',
